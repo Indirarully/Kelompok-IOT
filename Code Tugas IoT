@@ -1,0 +1,52 @@
+#include <DHT.h>
+
+#define DHTPIN D2       // Pin data dari sensor DHT11
+#define DHTTYPE DHT11   // Tipe sensor
+
+#define LED_HIJAU D5
+#define LED_KUNING D6
+#define LED_MERAH D7
+
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  Serial.begin(9600);
+  dht.begin();
+
+  pinMode(LED_HIJAU, OUTPUT);
+  pinMode(LED_KUNING, OUTPUT);
+  pinMode(LED_MERAH, OUTPUT);
+}
+
+void loop() {
+  float suhu = dht.readTemperature();
+  float kelembaban = dht.readHumidity();
+
+  if (isnan(suhu) || isnan(kelembaban)) {
+    Serial.println("Gagal membaca dari sensor DHT11!");
+    return;
+  }
+
+  Serial.print("Suhu: ");
+  Serial.print(suhu);
+  Serial.print(" °C | Kelembaban: ");
+  Serial.print(kelembaban);
+  Serial.println(" %");
+
+  // Logika kontrol LED
+  if (suhu < 25) {
+    digitalWrite(LED_HIJAU, HIGH);
+    digitalWrite(LED_KUNING, LOW);
+    digitalWrite(LED_MERAH, LOW);
+  } else if (suhu >= 25 && suhu <= 30) {
+    digitalWrite(LED_HIJAU, LOW);
+    digitalWrite(LED_KUNING, HIGH);
+    digitalWrite(LED_MERAH, LOW);
+  } else {
+    digitalWrite(LED_HIJAU, LOW);
+    digitalWrite(LED_KUNING, LOW);
+    digitalWrite(LED_MERAH, HIGH);
+  }
+
+  delay(2000); // jeda 2 detik
+}
