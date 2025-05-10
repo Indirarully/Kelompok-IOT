@@ -112,8 +112,6 @@ o	Amati perubahan pada LED sesuai dengan suhu yang terbaca.Instructables
 
 
 
-
-
 🧠 Penjelasan Fungsi
 
 Program Arduino ini membaca suhu dan kelembaban dari sensor DHT11. Berdasarkan nilai suhu yang terbaca, program mengontrol tiga LED sebagai indikator:
@@ -125,7 +123,6 @@ Program Arduino ini membaca suhu dan kelembaban dari sensor DHT11. Berdasarkan n
 •	LED Merah menyala jika suhu > 30°C (suhu panas).
 
 Data suhu dan kelembaban juga ditampilkan pada Serial Monitor setiap 2 detik.
-
 
 
 Kegunaan:
@@ -141,20 +138,11 @@ Cocok untuk proyek monitoring suhu ruangan atau lingkungan, seperti:
 •	Ruang penyimpanan makanan.
 
 
-
-
-
 Berikut link video praktik kami:
-
-
 
 https://youtu.be/z4TdQpXGIig?si=ce2w6wdmp5rxQ7QQ
 
-
-
 berikut link Github kami:
 
-
-
-https://github.com/jihantshivana
+https://github.com/Indirarully/Kelompok-IOT/tree/main
 
